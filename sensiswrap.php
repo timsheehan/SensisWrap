@@ -81,29 +81,29 @@ class Sensis implements Sensis_Config
 	 */
 	public function query_api($url)
 	{
-        $response = file_get_contents($url);       
-        if (!$response) {
-            $this->error[] = 'Error retrieving data.';
+		$response = file_get_contents($url);       
+		if (!$response) {
+			$this->error[] = 'Error retrieving data.';
 			return false;
-        }
+		}
 		else
 		{
-	        $result = json_decode($response, true);
-	        $code = $result["code"];
-	        if($code == 200)
-	        {
-	            return $result; 
-	        }
-	        else if($code == 206)
-	        {
-	            $this->errors[] = "Note: " . $result["message"] . "\n";
-	            return $result;
-	        }
-	        else {
-	            $this->errors[] = "API returned error: " . 
-	                    $result["message"] . ", code: " . $result["code"];
+			$result = json_decode($response, true);
+			$code = $result['code'];
+			if($code == 200)
+			{
+				return $result; 
+			}
+			else if($code == 206)
+			{
+				$this->errors[] = "Note: " . $result['message'] . "\n";
+				return $result;
+			}
+			else {
+				$this->errors[] = "API returned error: " . 
+					$result['message'] . ", code: " . $result['code'];
 				return false;
-	        }
+			}
 		}
 	}
 	
