@@ -4,11 +4,13 @@ SensisWrap Alpha 1.0
 Tim Sheehan | [Limelight Digital](http://www.limelightdigital.com)
 --------
 
-This project aims to create a user and developer friendly API wrapper for Australia Sensis API service, the leading source of business related data availabe in Australia today.
+> SensisWrap is the first PHP wrapper for Australias Sensis API, created by Tim Sheehan at Limelight Digital.
 
-The current Alpha release provides the ability to generate an API query and retrieve the results as either an array or JSON encoded string.
-
-Alpha 2 will provide reporting and individual listings.
+Project Roadmap:
+-   Simple and effective way of retrieving Sensis API data (done).
+-   Handle searching (done), individual listings and reports.
+-   Deal with paginated results and duplicates.
+-   Offer pre-formatted output.
 
 What is Sensis?
 ===================
