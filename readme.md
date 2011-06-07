@@ -7,6 +7,7 @@ Tim Sheehan | [Limelight Digital](http://www.limelightdigital.com)
 > SensisWrap is the first PHP wrapper for Australias Sensis API, created by Tim Sheehan at Limelight Digital.
 
 Project Roadmap:
+
    1. Simple and effective way of retrieving Sensis API data (done).
    2. Handle searching (done), individual listings and reports.
    3. Deal with paginated results and duplicates.
@@ -14,7 +15,7 @@ Project Roadmap:
 
 What is Sensis?
 ===================
-The Sensis� Business Search API provides a valuable service for developers seeking a business search API solution for Yellow Pages� and White Pages� business listings and advertising content.
+The Sensis Business Search API provides a valuable service for developers seeking a business search API solution for Yellow Pages and White Pages business listings and advertising content.
 
 [Sign up for a Sensis API key - FREE!](http://developers.sensis.com.au)
 
