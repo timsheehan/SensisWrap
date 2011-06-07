@@ -1,7 +1,7 @@
 SensisWrap Alpha 1.0
 ========
 
-Tim Sheehan | [Limlight Digital](http://www.limelightdigital.com)
+Tim Sheehan | [Limelight Digital](http://www.limelightdigital.com)
 --------
 
 This project aims to create a user and developer friendly API wrapper for Australia Sensis API service, the leading source of business related data availabe in Australia today.
