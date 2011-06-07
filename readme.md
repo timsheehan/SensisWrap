@@ -1,6 +1,9 @@
 SensisWrap Alpha 1.0
 ========
 
+Tim Sheehan | [Limlight Digital](http://www.limelightdigital.com)
+--------
+
 This project aims to create a user and developer friendly API wrapper for Australia Sensis API service, the leading source of business related data availabe in Australia today.
 
 The current Alpha release provides the ability to generate an API query and retrieve the results as either an array or JSON encoded string.
@@ -9,7 +12,8 @@ Alpha 2 will provide reporting and individual listings.
 
 What is Sensis?
 ===================
-The Sensis® Business Search API provides a valuable service for developers seeking a business search API solution for Yellow Pages® and White Pages® business listings and advertising content.
+The Sensisï¿½ Business Search API provides a valuable service for developers seeking a business search API solution for Yellow Pagesï¿½ and White Pagesï¿½ business listings and advertising content.
+
 [Sign up for a Sensis API key - FREE!](http://developers.sensis.com.au)
 
 CHANGELOG
