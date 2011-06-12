@@ -8,13 +8,6 @@
  * @version 1.0
  * @package sensis
  */
-interface Sensis_Config
-{
-	CONST api_key = 'x2jazvqnkhy2sjw9dcu4c595';
-	CONST api_url = 'http://api.sensis.com.au/ob-20110511';
-	CONST environment = 'test';
-}
-
 class Sensis implements Sensis_Config
 {
 	
@@ -68,7 +61,44 @@ class Sensis implements Sensis_Config
 			return false;
 		}
 	}
-	
+    
+    /**
+     * Get Listing By ID
+     * Takes array of search parameters and returns URL.
+     * 
+     * key                  string  API key (required)
+     * query                string  Listing ID
+     * 
+     * @param mixed $params search parameters
+     * @return mixed 
+     */
+    public function get_listing($params)
+    {
+        $required_keys = array(
+            'query'
+        );
+        if(is_array($params) && count($params) == count($required_keys))
+        {
+            if($this->check_required($required_keys, $params))
+            {
+                $query = http_build_query($params);
+                if($url = $this->build_url($query, 'getByListingId'))
+                {
+                    return $this->query_api($url);
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            $this->errors[] = 'Invalid search parameters, must be an array and contain query only.';
+            return false;
+        }
+    }
+    
 	/**
 	 * Query API
 	 * Sends url to Sensis to retrive JSON object
