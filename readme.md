@@ -8,10 +8,11 @@ Tim Sheehan | [Limelight Digital](http://www.limelightdigital.com)
 
 Project Roadmap:
 
-   1. Simple and effective way of retrieving Sensis API data (done).
-   2. Handle searching (done), individual listings and reports (done).
-   3. Deal with paginated results and duplicates.
-   4. Offer pre-formatted output.
+   1. <del>Simple and effective way of retrieving Sensis API data (done).</del>
+   2. <del>Handle searching (done), individual listings and reports (done).</del>
+   3. Add cURL alternative to Sensis file_get_contents.
+   4. Deal with paginated results and duplicates.
+   5. Offer pre-formatted output.
 
 What is Sensis?
 ===================
