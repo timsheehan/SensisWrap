@@ -5,7 +5,7 @@
  * This class provids an API wrapper for Australias Sensis API.
  * 
  * @author Tim Sheehan <tim@limelight-digital.com.au>
- * @version 1.0
+ * @version 1.1
  * @package sensis
  */
 class Sensis implements Sensis_Config
