@@ -1,4 +1,4 @@
-SensisWrap Alpha 1.0
+SensisWrap Alpha 1.1
 ========
 
 Tim Sheehan | [Limelight Digital](http://www.limelightdigital.com)
@@ -9,7 +9,7 @@ Tim Sheehan | [Limelight Digital](http://www.limelightdigital.com)
 Project Roadmap:
 
    1. Simple and effective way of retrieving Sensis API data (done).
-   2. Handle searching (done), individual listings and reports.
+   2. Handle searching (done), individual listings and reports (done).
    3. Deal with paginated results and duplicates.
    4. Offer pre-formatted output.
 
@@ -21,6 +21,10 @@ The Sensis Business Search API provides a valuable service for developers seekin
 
 CHANGELOG
 =========
+
+June 12th 2011:
+
+* Added get liting by ID, moved interface to example.
 
 June 6th 2011:
 
