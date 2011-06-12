@@ -1,4 +1,14 @@
 <?php
+/**
+ * Use interface for configuration.
+ */
+interface Sensis_Config
+{
+    CONST api_key = 'YOUR API KEY';
+    CONST api_url = 'http://api.sensis.com.au/ob-20110511';
+    CONST environment = 'test';
+}
+
 include('sensiswrap.php');
 $sensis = new Sensis();
 
