@@ -16,6 +16,7 @@ class Sensis implements Sensis_Config
     * @var string 
     */
     public $errors = FALSE;
+    public $last_url; // The last URL used for an attempted API call. Useful for debugging.
 	
     /**
      * SEARCH FUNCTION
@@ -44,9 +45,11 @@ class Sensis implements Sensis_Config
         {
             if($this->check_required($required_keys, $params))
             {
+                $params['key'] = self::api_key; // Add API key to params
                 $query = http_build_query($params);
                 if($url = $this->build_url($query, 'search'))
                 {
+                    $this->last_url = $url;
                     return $this->query_api($url);
                 }
             }
@@ -155,7 +158,7 @@ class Sensis implements Sensis_Config
                 self::api_url,
                 self::environment,
                 $type,
-                $query
+                "?" . $query
             );
             return implode('/', $url_parts);
         }
