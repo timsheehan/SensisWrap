@@ -17,6 +17,7 @@ class Sensis implements Sensis_Config
     */
     public $errors = FALSE;
     public $last_url; // The last URL used for an attempted API call. Useful for debugging.
+    public $last_response; // The raw data from the last response. Useful for debugging.
 	
     /**
      * SEARCH FUNCTION
@@ -124,6 +125,7 @@ class Sensis implements Sensis_Config
         }
         else
         {
+            $this->last_response = $response;
             $result = json_decode($response, true);
             $code = $result['code'];
             if($code == 200)

@@ -1,0 +1,7 @@
+{
+    "name": "magnumit/sapi-wrapper",
+    "description": "A wrapper for the Sensis API",
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
