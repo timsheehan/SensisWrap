@@ -8,7 +8,10 @@
  * @version 1.1
  * @package sensis
  */
-class Sensis implements Sensis_Config
+
+namespace magnumit\Sensis;
+
+class Sensis
 {
 	
    /**
@@ -18,6 +21,15 @@ class Sensis implements Sensis_Config
     public $errors = FALSE;
     public $last_url; // The last URL used for an attempted API call. Useful for debugging.
     public $last_response; // The raw data from the last response. Useful for debugging.
+    private $api_key;
+    private $api_url;
+    private $environment;
+
+    public function __construct($api_key, $api_url, $environment) {
+        $this->api_key = $api_key;
+        $this->api_url = $api_url;
+        $this->environment = $environment;
+    }
 	
     /**
      * SEARCH FUNCTION
@@ -46,7 +58,7 @@ class Sensis implements Sensis_Config
         {
             if($this->check_required($required_keys, $params))
             {
-                $params['key'] = self::api_key; // Add API key to params
+                $params['key'] = $this->api_key; // Add API key to params
                 $query = http_build_query($params);
                 if($url = $this->build_url($query, 'search'))
                 {
@@ -157,8 +169,8 @@ class Sensis implements Sensis_Config
         if($query)
         {
             $url_parts = array(
-                self::api_url,
-                self::environment,
+                $this->api_url,
+                $this->environment,
                 $type,
                 "?" . $query
             );

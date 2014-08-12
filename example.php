@@ -9,7 +9,7 @@ interface Sensis_Config
     CONST environment = 'test';
 }
 
-include('sensiswrap.php');
+include('Sensis.php');
 $sensis = new Sensis();
 
 /**
