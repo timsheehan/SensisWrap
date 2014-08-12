@@ -2,7 +2,7 @@ SensisWrap Alpha 1.1
 ========
 
 Tim Sheehan | [Limelight Digital](http://www.limelightdigital.com)
---------
+-------
 
 > SensisWrap is the first PHP wrapper for Australias Sensis API, created by Tim Sheehan at Limelight Digital.
 

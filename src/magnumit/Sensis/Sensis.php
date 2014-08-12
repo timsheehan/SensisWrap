@@ -8,7 +8,10 @@
  * @version 1.1
  * @package sensis
  */
-class Sensis implements Sensis_Config
+
+namespace magnumit\Sensis;
+
+class Sensis
 {
 	
    /**
@@ -16,6 +19,17 @@ class Sensis implements Sensis_Config
     * @var string 
     */
     public $errors = FALSE;
+    public $last_url; // The last URL used for an attempted API call. Useful for debugging.
+    public $last_response; // The raw data from the last response. Useful for debugging.
+    private $api_key;
+    private $api_url;
+    private $environment;
+
+    public function __construct($api_key, $api_url, $environment) {
+        $this->api_key = $api_key;
+        $this->api_url = $api_url;
+        $this->environment = $environment;
+    }
 	
     /**
      * SEARCH FUNCTION
@@ -44,9 +58,11 @@ class Sensis implements Sensis_Config
         {
             if($this->check_required($required_keys, $params))
             {
+                $params['key'] = $this->api_key; // Add API key to params
                 $query = http_build_query($params);
                 if($url = $this->build_url($query, 'search'))
                 {
+                    $this->last_url = $url;
                     return $this->query_api($url);
                 }
             }
@@ -102,22 +118,26 @@ class Sensis implements Sensis_Config
     /**
      * Query API
      * Sends url to Sensis to retrive JSON object
-     * -- Leveraging existing Sensis PHP example for retrieving response
-     * -- TODO: Change to cURL
-     * 
      * @param string $url complete url for query
-     * @param bool   $raw raw PHP array or JSON response
      * @return mixed 
      */
     public function query_api($url)
     {
-        $response = file_get_contents($url);       
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => $url
+        ));
+        $response = curl_exec($curl);
+        curl_close($curl);
+
         if (!$response) {
-            $this->error[] = 'Error retrieving data.';
+            $this->errors[] = 'Error retrieving data.';
             return false;
         }
         else
         {
+            $this->last_response = $response;
             $result = json_decode($response, true);
             $code = $result['code'];
             if($code == 200)
@@ -149,10 +169,10 @@ class Sensis implements Sensis_Config
         if($query)
         {
             $url_parts = array(
-                self::api_url,
-                self::environment,
+                $this->api_url,
+                $this->environment,
                 $type,
-                $query
+                "?" . $query
             );
             return implode('/', $url_parts);
         }
